@@ -47,7 +47,29 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Daily beer countdown</p>
+                <p class="masthead-subheading font-weight-light mb-0">Weekly beer countdown</p>
+                <!-- Timer answer-->
+                <div id="countdown"></div>
+                <script>
+                  function countdownTimer() {
+                      const difference = +new Date("2020-11-27 16:00:00") - +new Date();
+                      let remaining = "Yes!";
+                      if (difference > 0) {
+                        const parts = {
+                            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                            minutes: Math.floor((difference / 1000 / 60) % 60),
+                            seconds: Math.floor((difference / 1000) % 60),
+                        };
+                        remaining = Object.keys(parts).map(part => {
+                        return `${parts[part]} ${part}`;
+                      }).join(" ");
+                    }
+                    document.getElementById("countdown").innerHTML = remaining;
+                }
+                countdownTimer();
+                setInterval(countdownTimer, 1000);
+                </script>
             </div>
         </header>
         <!-- Countdown Section-->
@@ -117,24 +139,6 @@
                             <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="" />
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="about">
-            <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 ml-auto"><p class="lead">....</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead">....</p></div>
                 </div>
             </div>
         </section>

@@ -41,6 +41,14 @@
       offset: 80
     });
   
+    // timer answer
+    var hour = new Date().getHours();
+    if(hour >= 20 || hour <= 1) {
+      console.log('Yes');
+     } else {
+      console.log('No');
+     }
+
     // Collapse Navbar
     var navbarCollapse = function() {
       if ($("#mainNav").offset().top > 100) {
